@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id = "mascotas_tipos_tree" model = "ir.ui.view">
+            <field name = "name">mascotas.tipos.tree</field>
+            <field name = "model">mascotas.tipos</field>
+            <field name = "arch" type = "xml">
+                <tree>
+                    <field name = "codigo" />
+                    <field name = "name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id = "mascotas_tipos_form" model = "ir.ui.view">
+            <field name = "name">mascotas.tipos.foem</field>
+            <field name = "model">mascotas.tipos</field>
+            <field name = "arch" type = "xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name = "codigo" />
+                            <field name = "name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id = "mascotas_tipos_action" model = "ir.actions.act_window">
+            <field name = "name">Listado de tipos de mascotas</field>
+            <field name = "res_model">mascotas.tipos</field>
+            <field name = "view_mode">tree,form</field>
+        </record>
+
+        <menuitem id = "mascotas_tablas_tipos" name = "Tipos de mascotas" parent = "mascotas_tablas"
+                  action = "mascotas_tipos_action" />
+    </data>
+</odoo>
