@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Listado de mascotas -->
+    <record id = "mascotas_mascotas_tree" model = "ir.ui.view">
+      <field name = "name">mascotas.mascotas.tree</field>
+      <field name = "model">mascotas.mascotas</field>
+      <field name = "arch" type = "xml">
+        <tree>
+          <field name = "name" />
+          <field name = "tipo_id" />
+          <field name = "raza_id" />
+          <field name = "fecha_nacimiento" />
+          <field name = "sexo" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- Formulario de mascotas -->
+    <record id = "mascotas_mascotas_form" model= "ir.ui.view">
+      <field name = "name">mascotas.mascotas.form</field>
+      <field name = "model">mascotas.mascotas</field>
+      <field name = "arch" type = "xml">
+        <form>
+          <sheet>
+            <group name = "primero">
+              <group name = "izquierda">
+                <field name = "name" />
+                <field name = "tipo_id" />
+                <field name = "raza_id" />
+              </group>
+              <group name = "derecha">
+                <field name = "fecha_nacimiento" />
+                <field name = "sexo" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Acciones: Llamado a la lista de mascotas -->
+    <record id = "mascotas_mascotas_action" model = "ir.actions.act_window">
+      <field name = "name">Listado de mascotas</field>
+      <field name = "res_model">mascotas.mascotas</field>
+      <field name = "view_mode">tree,form</field>
+    </record>
+
+    <!--
+    Menús:
+      Principal: Es el que se muestra en la lista de apliacaiones.
+      Sub menus: Se muestra dentro del módulo.
+      Menú final: Es el que invoca a una acción, es decir es el último nivel de cada menú.
+     -->
+
+    <menuitem id = "mascotas_root" name = "Mascotas" />
+    <menuitem id = "mascotas_tablas" name = "Tablas" parent = "mascotas_root" />
+    <menuitem id = "mascotas_tablas_mascotas" name = "Mascotas" parent = "mascotas_tablas"
+              action = "mascotas_mascotas_action" />
+  </data>
+</odoo>
